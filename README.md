@@ -1,0 +1,6 @@
+to run : 
+add a mongo_uri
+CLOUDINARY_CLOUD_NAME=
+CLOUDINARY_API_KEY=
+CLOUDINARY_API_SECRET=
+in .env
