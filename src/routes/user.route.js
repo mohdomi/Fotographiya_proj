@@ -81,7 +81,7 @@ router.post('/click-image', authMiddleware, async (req, res) => {
         const image = await Image.findById(imageId);
         if (!image || image.categoryId.toString() !== categoryId) {
             return res.status(400).json({
-                error: "This image does not belong to the specified category."
+                error: "This image is not in the category."
             });
         }
 
@@ -98,7 +98,7 @@ router.post('/click-image', authMiddleware, async (req, res) => {
 
             if (!prevInteraction || prevInteraction.clickedImages.length < prevCategory.unlockThreshhold) {
                 return res.status(400).json({
-                    error: "You must interact with the previous category first to unlock this category."
+                    error: "Previous route is not unlocked."
                 });
             }
         }
@@ -127,7 +127,7 @@ router.post('/click-image', authMiddleware, async (req, res) => {
         await user.save();
 
         res.status(200).json({
-            message: "Interaction updated and next category checked",
+            message: "Interaction updated.",
             interactions: user.interactions
         });
     } catch (err) {

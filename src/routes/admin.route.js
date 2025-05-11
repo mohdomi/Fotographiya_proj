@@ -33,6 +33,7 @@ router.post('/user_pin_update' ,async (req,res)=>{
 
 })
 
+
 // the drop forms name should be images or something of our choice here
 router.post('/upload-images', upload.array('images', 50), async (req, res) => {
   try {
